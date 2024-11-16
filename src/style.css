@@ -50,6 +50,11 @@ section {
   column-gap: 1.5rem;
 }
 
+
+preact-island {
+  display: contents;
+}
+
 .resource {
   cursor: pointer;
   padding: 0.75rem 1.5rem;
