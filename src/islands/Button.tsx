@@ -1,7 +1,11 @@
-export function Button() {
+import { withIsland } from "../lib/PreactIslands";
+
+function Button() {
   return (
-    <button onClick={() => alert('YEY!!')}>
-      <span>Click me!</span>
+    <button className="resource" onClick={() => alert('YEY!!')}>
+      <span>Button Island - Click me!</span>
     </button>
   );
 }
+
+export default withIsland(Button, 'Button');

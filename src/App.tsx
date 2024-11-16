@@ -1,25 +1,15 @@
 import preactLogo from './assets/preact.svg';
 import { Header } from './components/Header';
-import { Button } from './islands/Button';
+import { Resource } from './components/Resource';
+import Button from './islands/Button';
 
-function Resource(props) {
-  return (
-    <a href={props.href} target="_blank" class="resource">
-      <h2>{props.title}</h2>
-      <p>{props.description}</p>
-    </a>
-  );
-}
 
 export function App() {
   return (
     <div>
       <Header />
       <Button />
-      <a href="https://preactjs.com" target="_blank">
-        <img src={preactLogo} alt="Preact logo" height="160" width="160" />
-      </a>
-      <h1>Get Started building Vite-powered Preact Apps </h1>
+      <h2>Get Started building Vite-powered Preact Apps </h2>
       <section>
         <Resource
           title="Learn Preact"
