@@ -1,10 +1,11 @@
-# `create-preact`
+# `preact-islands-demo`
+
+Project based on [Islands Architecture a step by step implementation](https://fveracoechea.com/blog/preact-islands-architecture/) article.
 
 <h2 align="center">
-  <img height="256" width="256" src="./src/assets/preact.svg">
+  <img height="180" width="180" src="./src/assets/preact.svg">
 </h2>
 
-<h3 align="center">Get started using Preact and Vite!</h3>
 
 ## Getting Started
 
