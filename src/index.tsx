@@ -1,19 +1,27 @@
-import { hydrate, prerender as render } from 'preact-iso';
-import './style.css'
+import hydrate from "preact-iso/hydrate";
+import render from 'preact-iso/prerender';
+
+import { registerIslands } from "./lib/preact-islands";
+
+import './style.css';
 
 // the dev server (dev command) runs in development mode
 const isDEV = import.meta.env.MODE === 'development';
+const isBrowser = typeof window !== 'undefined';
 
-// Hydrate the whole app while in development
-if (isDEV && typeof window !== 'undefined') {
+
+if (isBrowser && isDEV) {
+  // Hydrate the whole app while in development
   import('./App').then(({ App }) => {
     hydrate(<App />, document.getElementById('app'));
-  })
+  });
 }
 
-// Only hydrate Islands in production
-if (!isDEV && typeof window !== 'undefined') {
-  import('./islands/_manifest')
+if (isBrowser && !isDEV) {
+  // Only hydrate Islands in production
+  registerIslands({
+    Button: () => import("./islands/Button"),
+  });
 }
 
 export async function prerender(data) {

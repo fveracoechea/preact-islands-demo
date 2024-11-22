@@ -1,13 +1,18 @@
-
-import preactLogo from '../assets/preact.svg';
+import { useLocation } from 'preact-iso';
 
 export function Header() {
-  return (
-    <header>
-      <h1>Preact Islands</h1>
-      <a href="https://preactjs.com" target="_blank">
-        <img src={preactLogo} alt="Preact logo" height="160" width="160" />
-      </a>
-    </header>
-  )
+	const { url } = useLocation();
+
+	return (
+		<header>
+			<nav>
+				<a href="/" class={url == '/' && 'active'}>
+					Home
+				</a>
+				<a href="/404" class={url == '/404' && 'active'}>
+					404
+				</a>
+			</nav>
+		</header>
+	);
 }

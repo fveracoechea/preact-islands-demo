@@ -15,16 +15,61 @@
 
 body {
   margin: 0;
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
 }
 
 #app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #673ab8;
+}
+
+header nav {
+  display: flex;
+}
+
+header a {
+  color: #fff;
+  padding: 0.75rem;
+  text-decoration: none;
+}
+
+header a.active {
+  background-color: #0005;
+}
+
+header a:hover {
+  background-color: #0008;
+}
+
+main {
+  flex: auto;
+  display: flex;
+  align-items: center;
   max-width: 1280px;
   margin: 0 auto;
   text-align: center;
 }
+
+@media (max-width: 639px) {
+  main {
+    margin: 2rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #ccc;
+    background-color: #1a1a1a;
+  }
+}
+
+/* Home page */
 
 img {
   margin-bottom: 1.5rem;
@@ -34,41 +79,21 @@ img:hover {
   filter: drop-shadow(0 0 2em #673ab8aa);
 }
 
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-}
-
-
-section {
+.home section {
   margin-top: 5rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 1.5rem;
 }
 
-
-preact-island {
-  display: contents;
-}
-
 .resource {
-  cursor: pointer;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
   text-align: left;
   text-decoration: none;
   color: #222;
   background-color: #f1f1f1;
-  border: 1px solid #333;
-}
-
-button.resource {
-  font-weight: bold;
-  border: 1px solid #333;
+  border: 1px solid transparent;
 }
 
 .resource:hover {
@@ -77,11 +102,7 @@ button.resource {
 }
 
 @media (max-width: 639px) {
-  #app {
-    margin: 2rem;
-  }
-
-  section {
+  .home section {
     margin-top: 5rem;
     grid-template-columns: 1fr;
     row-gap: 1rem;
@@ -89,11 +110,6 @@ button.resource {
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    color: #ccc;
-    background-color: #1a1a1a;
-  }
-
   .resource {
     color: #ccc;
     background-color: #161616;
